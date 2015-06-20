@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Malicious Hosts Visualization</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Malicious Hosts Visualization">
+  <meta name="author" content="Do Hoang Giang">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Malicious Hosts Visualization</h1>
+    <h2>Coursera Developing Data Products</h2>
+    <p>Do Hoang Giang<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Product Overview</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>A Shiny application is develped to visualize and summarize the geo-location of malicious hosts in cyber world.</p>
+
+<p>A snapshot data is taken from the Alient Vault website (<a href="http://reputation.alienvault.com/reputation.data">http://reputation.alienvault.com/reputation.data</a>). The dataset consists of 258626 records, each of the records have 8 features: IP address, Reliability, Risk, Type, Country. Locale, Coordination, and x. </p>
+
+<p>In this project, we focus on Risk, Type, Country and Coordination features.</p>
+
+<ul>
+<li>Country represents the source country of a malicious event.</li>
+<li>Coordination represents the geo-location of the even in the world map.</li>
+<li>Type represents the type of malicious event (i.e. Scanning, Spamming, Control and Command, etc.)</li>
+<li>Risk represent the risk level of the events.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Alien Vault Data</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The raw data of this project can be viewed <a href="https://raw.githubusercontent.com/hgiang/CourseraDevelopingDataProduct/master/data/reputation.data">here</a>. This dataset is used in the book <strong>Data-Driven Security: Analysis, Visualization and Dashboards</strong> written by  Jay Jacobs and Bob Rudis.</p>
+
+<pre><code>##               IP Reliability Risk          Type Country     Locale
+## 1 222.76.212.189           4    2 Scanning Host      CN     Xiamen
+## 2 222.76.212.185           4    2 Scanning Host      CN     Xiamen
+## 3 222.76.212.186           4    2 Scanning Host      CN     Xiamen
+## 4    5.34.246.67           6    3      Spamming      US       &lt;NA&gt;
+## 5  178.94.97.176           4    5 Scanning Host      UA     Merefa
+## 6    66.2.49.232           4    2 Scanning Host      US Union City
+##                         Coords  x
+## 1   24.4797992706,118.08190155 11
+## 2   24.4797992706,118.08190155 11
+## 3   24.4797992706,118.08190155 11
+## 4                   38.0,-97.0 12
+## 5  49.8230018616,36.0507011414 11
+## 6 37.5962982178,-122.065696716 11
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Summary and Visualization</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>User input is taken from three dropdown menu.To interact with the map and the summary table, user have the following options: </p>
+
+<ul>
+<li>change the color of the displayed maps</li>
+<li>chose the activity type to display</li>
+<li>chose the risk level of the events</li>
+</ul>
+
+<p>A map of geo-location malicious event is displayed for each attack type and risk levels (or the combination of all attack classes and risk levels). The map is drawed by <strong>ggplot2</strong> and <strong>maps</strong> library.</p>
+
+<p>A table describes to top countries for each attack type and risk levels (or the combination of all attack classes and risk levels) is also presented. </p>
+
+<p>The map and the summary table is intereactively change respected to user input.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Final Product</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="app.png" alt="Application Screenshot" style="width: 500px;" align="right"/></p>
+
+<p><br/>
+<br/>
+The application can be view at:</p>
+
+<ul>
+<li><p>Shiny server link: <a href="https://hgiang.shinyapps.io/RDataProduct">Shiny Malicious Hosts Visualization</a></p></li>
+<li><p>Github link: <a href="https://github.com/hgiang/CourseraDevelopingDataProduct">Gihub Malicious Hosts Visualization</a></p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Product Overview'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Alien Vault Data'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Summary and Visualization'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Final Product'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
